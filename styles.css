@@ -238,3 +238,128 @@ button, a, summary { touch-action: manipulation; }
 .footer-top p, .footer-top nav a { color: #7d678e; }
 .school-symbol { font-size: 27px; font-weight: 850; line-height: 1; }
 .gallery-controls button { min-width: 44px; min-height: 44px; }
+
+/* Mobile layouts keep real content readable and controls easy to tap. */
+.showcase-screen { display: block; }
+.site-header { padding-top: env(safe-area-inset-top, 0px); }
+.site-footer { padding-bottom: env(safe-area-inset-bottom, 0px); }
+.viewport-measure { position: fixed; width: 0; height: 100vh; height: 100svh; visibility: hidden; pointer-events: none; }
+
+@media (max-width: 800px) {
+  .container {
+    width: auto;
+    margin-left: max(20px, env(safe-area-inset-left, 0px));
+    margin-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  .header-cta { min-height: 44px; }
+  .header-inner .brand { min-height: 44px; }
+  .mobile-nav {
+    position: absolute;
+    inset: 100% 0 auto;
+    max-height: calc(100vh - 74px - env(safe-area-inset-top, 0px));
+    max-height: calc(100dvh - 74px - env(safe-area-inset-top, 0px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-inline: max(20px, env(safe-area-inset-left, 0px)) max(20px, env(safe-area-inset-right, 0px));
+    box-shadow: 0 18px 30px #32214b14;
+  }
+  .section-heading>p, .feature-copy>p, .screens-heading p,
+  .step-card>p, .faq-list details>p, .cta-content>p { font-size: 14px; line-height: 1.85; }
+  .check-list li, .feature-link { font-size: 13px; }
+  .faq-list summary { font-size: 15px; min-height: 60px; }
+  .faq-list summary .icon { flex-shrink: 0; }
+  .hero-note, .design-note, .example-note, .trust-note p,
+  .cta-footnote, .footer-bottom { font-size: 11px; line-height: 1.7; }
+  .footer-top p, .footer-top nav a { font-size: 12px; }
+  .footer-bottom>span:last-child { font-size: 10px; }
+  .showcase-controls button { min-height: 44px; font-size: 13px; }
+  .feature-tabs button { font-size: 13px; min-height: 52px; }
+  .screens-heading { flex-wrap: wrap; }
+  .screens-heading>div:first-child { flex: 1 1 240px; }
+  .gallery-controls { flex-direction: row; }
+  .screen-card { flex-basis: clamp(230px, 68vw, 290px); }
+  .screen-card figcaption { font-size: 14px; }
+  .screen-card figcaption>span { font-size: 11px; }
+  .screens-track { scroll-padding-inline: 25px; }
+}
+
+@media (max-width: 600px) {
+  .hero-actions .button-primary { width: min(100%, 310px); justify-content: center; font-size: 15px; }
+  .hero-actions .button-text { font-size: 13px; }
+  .hero-description { font-size: 15px; }
+  .hero-note { flex-wrap: wrap; }
+  .section-heading h2 { font-size: clamp(28px, 7.5vw, 36px); }
+  .section-heading .eyebrow, .feature-kicker, .screens-heading .eyebrow { font-size: 10px; }
+  .school-inner>p { font-size: 12px; }
+  .school-list small { display: none; }
+
+  .showcase-perspective { display: grid; gap: 12px; padding: 0; perspective: none; }
+  .desktop-showcase {
+    width: min(100%, 340px);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+  .showcase-browser { display: none; }
+  .desktop-shot { width: 100%; height: auto; }
+  .showcase-callout {
+    position: static;
+    width: min(100%, 340px);
+    margin-inline: auto;
+    padding: 15px 18px;
+    border-radius: 16px;
+    gap: 12px;
+    animation: none;
+    transform: none;
+  }
+  .showcase-callout strong { font-size: 13px; }
+  .showcase-callout div>span { font-size: 11px; margin-top: 5px; }
+  .showcase-callout .mini-icon { width: 34px; height: 34px; flex-shrink: 0; }
+  .showcase-callout .icon { width: 19px; height: 19px; }
+  .design-note { margin-top: 22px; }
+
+  .feature-panel { gap: 28px; }
+  .preview-stage { min-height: 0; padding: 20px 12px 52px; }
+  .app-preview, .preview-stage:hover .app-preview { transform: none; }
+  .preview-body { padding: 18px 14px; }
+  .preview-bar { gap: 10px; font-size: 10px; }
+  .preview-badge, .preview-eyebrow { font-size: 10px; }
+  .preview-person { flex-wrap: wrap; }
+  .preview-person strong { font-size: 14px; }
+  .preview-person p { font-size: 11px; line-height: 1.5; }
+  .person-tag { font-size: 10px; padding: 6px 8px; }
+  .timeline-heading strong, .timeline-item strong { font-size: 13px; }
+  .timeline-heading>span { display: none; }
+  .timeline-date, .timeline-item p, .tag { font-size: 10px; }
+  .timeline-item { padding-bottom: 22px; }
+  .preview-sticker { font-size: 11px; bottom: 16px; right: 12px; padding: 10px 12px; }
+  .preview-body h4 { font-size: 17px; }
+  .message-bubble { width: 94%; font-size: 12px; padding: 12px; }
+  .message-bubble span, .chat-schedule p { font-size: 10px; }
+  .chat-schedule { flex-wrap: wrap; }
+  .chat-schedule strong, .chat-schedule>span:last-child { font-size: 11px; }
+  .time-options { flex-wrap: wrap; }
+  .time-options>span { font-size: 11px; padding: 8px; }
+  .project-description { font-size: 12px; line-height: 1.75; }
+  .example-note { bottom: -24px; right: 0; text-align: right; }
+  .feature-panel .preview-stage { margin-bottom: 12px; }
+
+  .step-card { display: block; padding: 24px; }
+  .step-visual { height: 140px; margin-block: 14px 22px; }
+  .step-card h3 { font-size: 21px; }
+  .step-card>p { margin-top: 10px; }
+  .email-line { font-size: 12px; padding: 12px 17px; }
+  .email-caption, .tags-visual>span, .tags-visual b { font-size: 11px; }
+  .tags-visual b { padding: 9px 12px; }
+  .connect-avatar { width: 48px; height: 48px; font-size: 13px; }
+  .connect-heart { font-size: 30px; }
+  .connect-dashes { width: 18px; margin-inline: 7px; }
+  .cta-content .eyebrow { font-size: 9px; }
+  .button-white { min-height: 52px; font-size: 14px; }
+}
+
+@media (hover: none) {
+  .phone-screen:hover, .step-card:hover { transform: none; }
+}

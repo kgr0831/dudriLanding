@@ -81,3 +81,36 @@
   .is-animated .journey-traveler { width: 90px; }
   .is-animated .journey-traveler>span { display: none; }
 }
+
+/* Reserve space for the notch and keep the mobile story inside the viewport. */
+.is-animated .journey-sticky {
+  top: calc(88px + env(safe-area-inset-top, 0px));
+  height: calc(100svh - 88px - env(safe-area-inset-top, 0px));
+}
+@media (max-width: 800px) {
+  .is-animated .journey-sticky {
+    top: calc(74px + env(safe-area-inset-top, 0px));
+    height: calc(100svh - 74px - env(safe-area-inset-top, 0px));
+  }
+  .journey-card>p { font-size: 13px; }
+  .scene-label, .scene-tags>span, .scene-finish { font-size: 10px; }
+  .scene-chat { font-size: 11px; }
+  .journey-steps strong { font-size: 12px; }
+  .journey-steps small { font-size: 10px; }
+  .journey-steps>button { min-height: 60px; }
+  .journey-accessible-note { font-size: 10px; }
+  .journey-heading .eyebrow { font-size: 10px; }
+}
+@media (max-width: 600px) {
+  .is-animated .journey-sticky { min-height: 0; padding-block: 18px 12px; }
+  .is-animated .journey-world { flex: 1; min-height: 350px; height: auto; margin-block: 8px 18px; }
+  .is-animated .journey-heading h2 { font-size: 27px; }
+  .is-animated .journey-card { width: 300px; max-width: 92%; padding: 20px; left: 50%; top: 50%; }
+  .is-animated .journey-traveler { width: 76px; }
+  .journey-steps { gap: 10px; }
+  .journey-steps>button { display: block; padding-top: 12px; }
+  .journey-steps>button>span { display: none; }
+  .journey-steps small { line-height: 1.6; }
+  .journey-accessible-note { margin-top: 12px; line-height: 1.6; }
+  .journey-traveler>span { display: none; }
+}

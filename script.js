@@ -152,6 +152,11 @@ const journeySteps = [...journey.querySelectorAll('[data-journey-step]')];
 const journeyFrame = document.getElementById('journey-frame');
 const header = document.querySelector('.site-header');
 const smallJourney = matchMedia('(max-width: 480px)');
+// Small viewport units stay stable when a mobile browser retracts its toolbar.
+const viewportMeasure = document.createElement('div');
+viewportMeasure.className = 'viewport-measure';
+viewportMeasure.setAttribute('aria-hidden', 'true');
+document.body.append(viewportMeasure);
 let journeyActive = false;
 let currentScene = -1;
 const clamp = value => Math.min(1, Math.max(0, value));
@@ -160,7 +165,9 @@ const interpolate = (start, end, progress) => start + (end - start) * progress;
 
 function configureJourney() {
   // On short screens or with motion disabled, all three cards remain readable.
-  journeyActive = motionEnabled && !reducedMotion.matches && innerHeight >= 690;
+  const viewportHeight = viewportMeasure.getBoundingClientRect().height;
+  const minimumHeight = matchMedia('(max-width: 600px)').matches ? 760 : 690;
+  journeyActive = motionEnabled && !reducedMotion.matches && viewportHeight >= minimumHeight;
   journey.classList.toggle('is-animated', journeyActive);
   if (!journeyActive) {
     journeyCards.forEach(card => { card.style.removeProperty('transform'); card.style.removeProperty('opacity'); });
@@ -226,6 +233,7 @@ journeySteps.forEach((button, index) => button.addEventListener('click', () => {
   scrollTo({ top, behavior: 'smooth' });
 }));
 addEventListener('resize', configureJourney, { passive: true });
+new ResizeObserver(configureJourney).observe(viewportMeasure);
 let scrollFrame = 0;
 function updateScroll() {
   const available = document.documentElement.scrollHeight - innerHeight;
