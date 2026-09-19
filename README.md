@@ -19,12 +19,12 @@ Node.js 없이 `python -m http.server 3100 --bind 127.0.0.1`로 실행하거나,
 
 ## 서비스 연결
 
-시작 버튼과 기능별 링크는 기존 앱의 `http://localhost:3000`으로 연결됩니다. 실제 기능을 이용하려면 루트의 `start-local.bat`로 서비스를 실행하세요.
+시작하기·나의 가능성 만나보기·두드리 시작하기·서비스 바로가기는 배포된 서비스 홈 `https://dudri-app.vercel.app/`로 연결됩니다. 기능별 링크는 같은 도메인의 `/explore`, `/coffee`, `/projects`, `/studio`로 이동합니다.
 
-배포 시 `index.html`의 다음 설정을 실제 서비스 주소로 바꾸고, 같은 파일의 기본 `href="http://localhost:3000/..."` 링크도 동일하게 변경하세요. 별도 API 키나 환경 변수는 필요하지 않습니다.
+서비스 주소가 바뀌면 `index.html`의 다음 설정과 같은 파일의 기본 `href="https://dudri-app.vercel.app/..."` 링크를 함께 변경하세요. JavaScript가 꺼져 있어도 서비스로 연결되며, 별도 API 키나 환경 변수는 필요하지 않습니다.
 
 ```html
-<meta name="dudri-app-url" content="https://실제-서비스-주소">
+<meta name="dudri-app-url" content="https://dudri-app.vercel.app">
 ```
 
 정적 호스팅에는 `index.html`, `styles.css`, `journey.css`, `script.js`, `assets/`를 함께 올리면 됩니다. 폰트와 이미지가 모두 로컬에 있어 외부 CDN 요청은 없습니다.
