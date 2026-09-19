@@ -1,0 +1,11 @@
+{
+  "name": "dudri-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "두드리 서비스 소개 — Figma 디자인을 바탕으로 만든 반응형 랜딩 페이지",
+  "scripts": {
+    "dev": "python -m http.server 3100 --bind 127.0.0.1",
+    "start": "python -m http.server 3100 --bind 127.0.0.1",
+    "check": "node --check script.js"
+  }
+}
